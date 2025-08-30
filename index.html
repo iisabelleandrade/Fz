@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fumaça Zen - Design Premium</title>
+    <title>Fumaça Zen - Estilo Desenho</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -17,7 +17,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #1a2a3a, #0d1b2a);
+            background: linear-gradient(135deg, #2c3e50, #1a1a2e);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             padding: 20px;
             color: #e0e0e0;
@@ -35,10 +35,6 @@
             border: 1px solid rgba(93, 138, 168, 0.2);
         }
         
-        .header {
-            margin-bottom: 40px;
-        }
-        
         .logo-container {
             display: flex;
             flex-direction: column;
@@ -46,118 +42,147 @@
             margin-bottom: 40px;
         }
         
-        .logo {
+        .hand-drawn-logo {
             position: relative;
-            width: 220px;
-            height: 220px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            width: 300px;
+            height: 300px;
             margin-bottom: 30px;
         }
         
-        .logo-bg {
+        .circle-bg {
             position: absolute;
             width: 100%;
             height: 100%;
-            background: linear-gradient(145deg, #1e3a5f, #132a45);
+            border: 8px solid #5D8AA8;
             border-radius: 50%;
-            box-shadow: 0 0 40px rgba(58, 123, 213, 0.3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            box-shadow: 0 0 25px rgba(93, 138, 168, 0.4);
+            filter: url(#markerShape);
         }
         
-        .logo-inner {
-            width: 80%;
-            height: 80%;
-            background: linear-gradient(145deg, #2a4b6a, #1a334d);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .initials {
-            font-size: 80px;
-            font-weight: 800;
-            background: linear-gradient(to bottom, #6ca0dc, #4a7baf);
+        .hand-lettering {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 100px;
+            font-weight: 900;
+            font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #8bb9fe, #5D8AA8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 5px 15px rgba(108, 160, 220, 0.4);
-            z-index: 2;
-            position: relative;
+            text-shadow: 3px 3px 0 #1a334d, 
+                        6px 6px 0 rgba(0, 0, 0, 0.2);
+            z-index: 10;
         }
         
-        .vapor-effect {
+        .drawn-elements {
             position: absolute;
             width: 100%;
             height: 100%;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(108, 160, 220, 0.3), transparent 30%),
-                        radial-gradient(circle at 70% 70%, rgba(93, 138, 168, 0.2), transparent 30%);
-            animation: pulse 6s infinite ease-in-out;
         }
         
-        .vapor-circle {
+        .drawn-smoke {
             position: absolute;
+            background: radial-gradient(circle, rgba(108, 160, 220, 0.7), transparent 70%);
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(108, 160, 220, 0.15), transparent 70%);
-            animation: float 12s infinite ease-in-out;
+            filter: blur(5px);
+            animation: float 15s infinite ease-in-out;
         }
         
-        .vapor-circle:nth-child(1) {
-            width: 100px;
-            height: 100px;
+        .drawn-smoke:nth-child(1) {
+            width: 120px;
+            height: 120px;
             top: 20px;
-            left: 20px;
+            left: 40px;
             animation-delay: 0s;
         }
         
-        .vapor-circle:nth-child(2) {
+        .drawn-smoke:nth-child(2) {
+            width: 90px;
+            height: 90px;
+            top: 40px;
+            right: 30px;
+            animation-delay: 3s;
+        }
+        
+        .drawn-smoke:nth-child(3) {
             width: 80px;
             height: 80px;
-            bottom: 30px;
-            right: 25px;
-            animation-delay: 2s;
-        }
-        
-        .vapor-circle:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            top: 50px;
-            right: 40px;
-            animation-delay: 4s;
-        }
-        
-        .vapor-circle:nth-child(4) {
-            width: 70px;
-            height: 70px;
-            bottom: 40px;
-            left: 30px;
+            bottom: 50px;
+            left: 50px;
             animation-delay: 6s;
+        }
+        
+        .drawn-smoke:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            bottom: 30px;
+            right: 40px;
+            animation-delay: 9s;
+        }
+        
+        .drawn-line {
+            position: absolute;
+            border: 3px solid #6CA0DC;
+            border-radius: 50%;
+            width: 130%;
+            height: 130%;
+            top: -15%;
+            left: -15%;
+            box-shadow: 0 0 15px rgba(108, 160, 220, 0.4);
+            animation: rotate 30s infinite linear;
+        }
+        
+        .drawn-line:nth-child(2) {
+            width: 160%;
+            height: 160%;
+            top: -30%;
+            left: -30%;
+            border-color: #5D8AA8;
+            animation-duration: 40s;
+            animation-direction: reverse;
+        }
+        
+        .drawn-line:nth-child(3) {
+            width: 190%;
+            height: 190%;
+            top: -45%;
+            left: -45%;
+            border-color: #4a7baf;
+            animation-duration: 50s;
         }
         
         .brand-name {
             font-size: 52px;
             font-weight: 700;
-            background: linear-gradient(to right, #8bb9fe, #6ca0dc, #5d8aa8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+            color: #8bb9fe;
             margin-bottom: 15px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            letter-spacing: 1.5px;
+            text-shadow: 2px 2px 0 #1a334d, 
+                        4px 4px 0 rgba(0, 0, 0, 0.2);
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .brand-name::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #5D8AA8, #6CA0DC, #5D8AA8);
+            border-radius: 2px;
         }
         
         .tagline {
-            font-size: 20px;
+            font-size: 22px;
             color: #9ab4d4;
             font-weight: 300;
             margin-bottom: 40px;
             letter-spacing: 1px;
+            font-style: italic;
         }
         
         .features {
@@ -174,24 +199,26 @@
             border-radius: 16px;
             width: 200px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(93, 138, 168, 0.2);
+            border: 2px dashed #5D8AA8;
             transition: transform 0.3s ease;
         }
         
         .feature:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) rotate(2deg);
         }
         
         .feature i {
             font-size: 36px;
             color: #6ca0dc;
             margin-bottom: 15px;
+            filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3));
         }
         
         .feature h3 {
             font-size: 18px;
             margin-bottom: 10px;
             color: #c3d5f0;
+            font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
         }
         
         .feature p {
@@ -220,10 +247,11 @@
             margin-bottom: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
         
         .color-box:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(5deg);
         }
         
         .color-name {
@@ -233,29 +261,29 @@
         
         @keyframes float {
             0%, 100% {
-                transform: translate(0, 0) scale(1);
+                transform: translate(0, 0) scale(1) rotate(0deg);
                 opacity: 0.7;
             }
             25% {
-                transform: translate(10px, -15px) scale(1.05);
+                transform: translate(10px, -15px) scale(1.1) rotate(5deg);
                 opacity: 0.8;
             }
             50% {
-                transform: translate(-5px, -25px) scale(1.1);
+                transform: translate(-5px, -25px) scale(1.2) rotate(10deg);
                 opacity: 0.5;
             }
             75% {
-                transform: translate(-10px, -10px) scale(1.07);
+                transform: translate(-10px, -10px) scale(1.15) rotate(7deg);
                 opacity: 0.6;
             }
         }
         
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 0.5;
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
             }
-            50% {
-                opacity: 0.8;
+            100% {
+                transform: rotate(360deg);
             }
         }
         
@@ -263,15 +291,26 @@
             margin-top: 40px;
             color: #9ab4d4;
             font-size: 14px;
+            border-top: 2px dashed #5D8AA8;
+            padding-top: 20px;
         }
         
         @media (max-width: 768px) {
+            .hand-drawn-logo {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .hand-lettering {
+                font-size: 80px;
+            }
+            
             .brand-name {
                 font-size: 36px;
             }
             
             .tagline {
-                font-size: 16px;
+                font-size: 18px;
             }
             
             .features {
@@ -287,49 +326,54 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <div class="logo-container">
-                <div class="logo">
-                    <div class="logo-bg">
-                        <div class="logo-inner">
-                            <div class="initials">FZ</div>
-                            <div class="vapor-effect"></div>
-                            <div class="vapor-circle"></div>
-                            <div class="vapor-circle"></div>
-                            <div class="vapor-circle"></div>
-                            <div class="vapor-circle"></div>
-                        </div>
-                    </div>
+        <div class="logo-container">
+            <div class="hand-drawn-logo">
+                <svg width="0" height="0">
+                    <filter id="markerShape">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" result="noise"/>
+                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" />
+                    </filter>
+                </svg>
+                <div class="circle-bg"></div>
+                <div class="drawn-elements">
+                    <div class="drawn-line"></div>
+                    <div class="drawn-line"></div>
+                    <div class="drawn-line"></div>
+                    <div class="drawn-smoke"></div>
+                    <div class="drawn-smoke"></div>
+                    <div class="drawn-smoke"></div>
+                    <div class="drawn-smoke"></div>
                 </div>
-                
-                <h1 class="brand-name">Fumaça Zen</h1>
-                <p class="tagline">Experiência premium de vapor com equilíbrio perfeito</p>
+                <div class="hand-lettering">FZ</div>
             </div>
+            
+            <h1 class="brand-name">Fumaça Zen</h1>
+            <p class="tagline">Arte e equilíbrio em cada vapor</p>
         </div>
         
         <div class="features">
             <div class="feature">
-                <i class="fas fa-wind"></i>
+                <i class="fas fa-paint-brush"></i>
+                <h3>Design Artístico</h3>
+                <p>Logo criada com estilo de desenho à mão livre</p>
+            </div>
+            
+            <div class="feature">
+                <i class="fas fa-smoking"></i>
                 <h3>Vapor Suave</h3>
-                <p>Nuvens densas com sabor intenso e suavidade incomparável</p>
+                <p>Nuvens densas com traço artisticamente suave</p>
             </div>
             
             <div class="feature">
-                <i class="fas fa-battery-full"></i>
-                <h3>Longa Duração</h3>
-                <p>Bateria de alta performance para experiências prolongadas</p>
+                <i class="fas fa-palette"></i>
+                <h3>Cones Harmônicos</h3>
+                <p>Paleta de azuis que transmite tranquilidade</p>
             </div>
             
             <div class="feature">
-                <i class="fas fa-tint"></i>
-                <h3>Sabores Premium</h3>
-                <p>Variedade de sabores especiais com qualidade superior</p>
-            </div>
-            
-            <div class="feature">
-                <i class="fas fa-medal"></i>
-                <h3>Qualidade</h3>
-                <p>Produtos testados e aprovados com garantia de satisfação</p>
+                <i class="fas fa-hand-sparkles"></i>
+                <h3>Feito à Mão</h3>
+                <p>Estilo artesanal com personalidade única</p>
             </div>
         </div>
         
@@ -357,48 +401,49 @@
         </div>
         
         <div class="footer">
-            <p>© 2023 Fumaça Zen - Todos os direitos reservados</p>
+            <p>© 2023 Fumaça Zen - Arte Digital em Estilo de Desenho</p>
         </div>
     </div>
 
     <script>
-        // Efeito interativo para a logo
-        document.addEventListener('mousemove', (e) => {
-            const logo = document.querySelector('.logo-inner');
-            const x = (window.innerWidth - e.clientX) / 40;
-            const y = (window.innerHeight - e.clientY) / 40;
-            
-            logo.style.transform = `translateX(${x}px) translateY(${y}px) rotate(${x/2}deg)`;
-        });
-        
-        // Adicionar efeito de clique para gerar mais efeito de vapor
-        document.querySelector('.logo').addEventListener('click', function() {
-            const inner = document.querySelector('.logo-inner');
-            const vapor = document.createElement('div');
-            vapor.classList.add('vapor-circle');
-            
-            // Tamanho aleatório
-            const size = Math.random() * 60 + 40;
-            vapor.style.width = `${size}px`;
-            vapor.style.height = `${size}px`;
-            
-            // Posicionamento aleatório
-            vapor.style.top = `${Math.random() * 60 + 20}%`;
-            vapor.style.left = `${Math.random() * 60 + 20}%`;
-            
-            // Atraso de animação aleatório
-            vapor.style.animationDelay = `${Math.random() * 8}s`;
-            
-            inner.appendChild(vapor);
-            
-            // Remover após algum tempo
-            setTimeout(() => {
-                vapor.remove();
-            }, 12000);
-        });
-        
-        // Efeito de digitação para o slogan
+        // Efeito de desenho animado
         document.addEventListener('DOMContentLoaded', function() {
+            const logo = document.querySelector('.hand-drawn-logo');
+            logo.style.opacity = '0';
+            
+            // Animação de entrada
+            setTimeout(() => {
+                logo.style.transition = 'opacity 2s ease';
+                logo.style.opacity = '1';
+            }, 500);
+            
+            // Efeito de clique para adicionar mais elementos de fumaça
+            logo.addEventListener('click', function() {
+                const drawnElements = document.querySelector('.drawn-elements');
+                const smoke = document.createElement('div');
+                smoke.classList.add('drawn-smoke');
+                
+                // Tamanho aleatório
+                const size = Math.random() * 80 + 40;
+                smoke.style.width = `${size}px`;
+                smoke.style.height = `${size}px`;
+                
+                // Posicionamento aleatório
+                smoke.style.top = `${Math.random() * 70 + 15}%`;
+                smoke.style.left = `${Math.random() * 70 + 15}%`;
+                
+                // Atraso de animação aleatório
+                smoke.style.animationDelay = `${Math.random() * 15}s`;
+                
+                drawnElements.appendChild(smoke);
+                
+                // Remover após algum tempo
+                setTimeout(() => {
+                    smoke.remove();
+                }, 15000);
+            });
+            
+            // Efeito de digitação para o slogan
             const tagline = document.querySelector('.tagline');
             const text = tagline.textContent;
             tagline.textContent = '';
@@ -408,11 +453,11 @@
                 if (i < text.length) {
                     tagline.textContent += text.charAt(i);
                     i++;
-                    setTimeout(typeWriter, 50);
+                    setTimeout(typeWriter, 70);
                 }
             };
             
-            setTimeout(typeWriter, 1000);
+            setTimeout(typeWriter, 1500);
         });
     </script>
 </body>
