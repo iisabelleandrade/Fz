@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fumaça Zen - Logo Minimalista</title>
+    <title>Fumaça Zen - Estilo Rosa com Pod</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -18,7 +18,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #1a2a3a, #0d1b2a);
+            background: linear-gradient(135deg, #2d1a33, #1a0d1f);
             padding: 20px;
             color: #e0e0e0;
         }
@@ -26,7 +26,7 @@
         .container {
             text-align: center;
             padding: 40px;
-            background: rgba(18, 30, 43, 0.9);
+            background: rgba(30, 18, 35, 0.9);
             border-radius: 24px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             max-width: 1000px;
@@ -53,16 +53,18 @@
             padding: 30px;
             margin-bottom: 20px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            width: 280px;
-            height: 220px;
+            width: 300px;
+            height: 250px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            position: relative;
+            overflow: hidden;
         }
         
         .logo-variation.dark {
-            background: #1a334d;
+            background: #2d1a33;
         }
         
         .logo-mark {
@@ -73,19 +75,38 @@
         }
         
         .logo-icon {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             margin-right: 15px;
             position: relative;
         }
         
-        .vapor-icon {
-            position: absolute;
+        .interlocked-fz {
+            position: relative;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #6CA0DC, #4a7baf);
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            box-shadow: 0 5px 15px rgba(108, 160, 220, 0.3);
+        }
+        
+        .letter-f, .letter-z {
+            position: absolute;
+            font-size: 50px;
+            font-weight: 900;
+            color: #ff4b8b;
+            text-shadow: 2px 2px 0px #d32f70, 
+                        4px 4px 0px rgba(0, 0, 0, 0.1);
+        }
+        
+        .letter-f {
+            left: 0;
+            top: 0;
+            z-index: 2;
+        }
+        
+        .letter-z {
+            left: 15px;
+            top: 15px;
+            color: #ff80ab;
+            z-index: 1;
         }
         
         .vapor-lines {
@@ -97,14 +118,15 @@
         
         .vapor-line {
             position: absolute;
-            background: linear-gradient(to top, #6CA0DC, #8bb9fe);
+            background: linear-gradient(to top, #ff80ab, #ff4b8b);
             border-radius: 10px;
+            opacity: 0.8;
         }
         
         .vapor-line:nth-child(1) {
             width: 8px;
             height: 25px;
-            left: 20px;
+            left: 25px;
             top: -20px;
             transform: rotate(10deg);
         }
@@ -112,7 +134,7 @@
         .vapor-line:nth-child(2) {
             width: 10px;
             height: 35px;
-            left: 45px;
+            left: 50px;
             top: -30px;
             transform: rotate(-5deg);
         }
@@ -120,7 +142,7 @@
         .vapor-line:nth-child(3) {
             width: 7px;
             height: 28px;
-            left: 70px;
+            left: 75px;
             top: -25px;
             transform: rotate(5deg);
         }
@@ -134,7 +156,7 @@
         .company-name {
             font-size: 28px;
             font-weight: 700;
-            color: #2c3e50;
+            color: #2d1a33;
             letter-spacing: 1px;
             line-height: 1;
         }
@@ -145,10 +167,85 @@
         
         .tagline {
             font-size: 14px;
-            color: #6CA0DC;
+            color: #ff80ab;
             font-weight: 300;
             letter-spacing: 2px;
             margin-top: 5px;
+        }
+        
+        .pod-container {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .pod {
+            width: 30px;
+            height: 60px;
+            background: linear-gradient(to bottom, #4a0035, #7a1c5a);
+            border-radius: 8px 8px 15px 15px;
+            position: relative;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .pod::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 5px;
+            background: #ff80ab;
+            border-radius: 2px;
+        }
+        
+        .pod::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 10px;
+            background: #ff4b8b;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #ff4b8b;
+        }
+        
+        .pod-smoke {
+            position: absolute;
+            bottom: 60px;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 128, 171, 0.7);
+            border-radius: 50%;
+            filter: blur(4px);
+            opacity: 0;
+            animation: smoke-float 4s infinite ease-in-out;
+        }
+        
+        .pod-smoke:nth-child(1) {
+            left: 5px;
+            animation-delay: 0.5s;
+        }
+        
+        .pod-smoke:nth-child(2) {
+            left: 15px;
+            animation-delay: 1s;
+        }
+        
+        .pod-smoke:nth-child(3) {
+            left: 0px;
+            animation-delay: 1.5s;
+        }
+        
+        .pod-smoke:nth-child(4) {
+            left: 10px;
+            animation-delay: 2s;
         }
         
         .logo-vertical {
@@ -160,20 +257,30 @@
         .logo-vertical .logo-icon {
             margin-right: 0;
             margin-bottom: 15px;
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
+        }
+        
+        .logo-vertical .letter-f, 
+        .logo-vertical .letter-z {
+            font-size: 60px;
+        }
+        
+        .logo-vertical .letter-z {
+            left: 20px;
+            top: 20px;
         }
         
         .logo-vertical .vapor-line:nth-child(1) {
-            left: 15px;
+            left: 20px;
         }
         
         .logo-vertical .vapor-line:nth-child(2) {
-            left: 50px;
+            left: 55px;
         }
         
         .logo-vertical .vapor-line:nth-child(3) {
-            left: 85px;
+            left: 90px;
         }
         
         .logo-vertical .company-name {
@@ -202,10 +309,11 @@
             align-items: center;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
             overflow: hidden;
+            position: relative;
         }
         
         .app-example.dark {
-            background: #2c3e50;
+            background: #2d1a33;
         }
         
         .app-icon {
@@ -216,7 +324,7 @@
             align-items: center;
         }
         
-        .app-icon .vapor-icon {
+        .app-icon .interlocked-fz {
             width: 70px;
             height: 70px;
         }
@@ -251,33 +359,33 @@
         
         .color-name {
             font-size: 14px;
-            color: #c3d5f0;
+            color: #ffb6d5;
         }
         
         .section-title {
             font-size: 28px;
-            color: #8bb9fe;
+            color: #ff80ab;
             margin-bottom: 30px;
             text-align: center;
             font-weight: 700;
         }
         
         .instructions {
-            background: rgba(26, 42, 58, 0.6);
+            background: rgba(50, 25, 60, 0.6);
             padding: 25px;
             border-radius: 16px;
             margin-top: 40px;
             text-align: left;
-            border-left: 4px solid #6CA0DC;
+            border-left: 4px solid #ff4b8b;
         }
         
         .instructions h3 {
-            color: #8bb9fe;
+            color: #ff80ab;
             margin-bottom: 15px;
         }
         
         .instructions p {
-            color: #9ab4d4;
+            color: #ffb6d5;
             margin-bottom: 10px;
             line-height: 1.5;
         }
@@ -288,8 +396,8 @@
             }
             
             .logo-variation {
-                width: 240px;
-                height: 200px;
+                width: 260px;
+                height: 230px;
                 padding: 20px;
             }
             
@@ -301,18 +409,35 @@
                 font-size: 28px;
             }
         }
+        
+        @keyframes smoke-float {
+            0% {
+                transform: translateY(0) scale(0.8);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-60px) scale(1.5);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="section-title">Logo Fumaça Zen - Estilo Minimalista</h1>
+        <h1 class="section-title">Logo Fumaça Zen - Estilo Rosa com Pod</h1>
         
         <div class="logo-showcase">
             <div class="logo-container">
                 <div class="logo-variation">
                     <div class="logo-mark">
                         <div class="logo-icon">
-                            <div class="vapor-icon"></div>
+                            <div class="interlocked-fz">
+                                <div class="letter-f">F</div>
+                                <div class="letter-z">Z</div>
+                            </div>
                             <div class="vapor-lines">
                                 <div class="vapor-line"></div>
                                 <div class="vapor-line"></div>
@@ -322,6 +447,15 @@
                         <div class="logo-type">
                             <div class="company-name">FUMACA ZEN</div>
                             <div class="tagline">VAPE • ESSENCES</div>
+                        </div>
+                    </div>
+                    
+                    <div class="pod-container">
+                        <div class="pod">
+                            <div class="pod-smoke"></div>
+                            <div class="pod-smoke"></div>
+                            <div class="pod-smoke"></div>
+                            <div class="pod-smoke"></div>
                         </div>
                     </div>
                 </div>
@@ -332,7 +466,10 @@
                 <div class="logo-variation dark">
                     <div class="logo-mark">
                         <div class="logo-icon">
-                            <div class="vapor-icon"></div>
+                            <div class="interlocked-fz">
+                                <div class="letter-f">F</div>
+                                <div class="letter-z">Z</div>
+                            </div>
                             <div class="vapor-lines">
                                 <div class="vapor-line"></div>
                                 <div class="vapor-line"></div>
@@ -344,6 +481,15 @@
                             <div class="tagline">VAPE • ESSENCES</div>
                         </div>
                     </div>
+                    
+                    <div class="pod-container">
+                        <div class="pod">
+                            <div class="pod-smoke"></div>
+                            <div class="pod-smoke"></div>
+                            <div class="pod-smoke"></div>
+                            <div class="pod-smoke"></div>
+                        </div>
+                    </div>
                 </div>
                 <p>Versão Escura</p>
             </div>
@@ -352,7 +498,10 @@
                 <div class="logo-variation">
                     <div class="logo-vertical">
                         <div class="logo-icon">
-                            <div class="vapor-icon"></div>
+                            <div class="interlocked-fz">
+                                <div class="letter-f">F</div>
+                                <div class="letter-z">Z</div>
+                            </div>
                             <div class="vapor-lines">
                                 <div class="vapor-line"></div>
                                 <div class="vapor-line"></div>
@@ -362,6 +511,15 @@
                         <div class="logo-type">
                             <div class="company-name">FUMACA ZEN</div>
                             <div class="tagline">VAPE • ESSENCES</div>
+                        </div>
+                    </div>
+                    
+                    <div class="pod-container">
+                        <div class="pod">
+                            <div class="pod-smoke"></div>
+                            <div class="pod-smoke"></div>
+                            <div class="pod-smoke"></div>
+                            <div class="pod-smoke"></div>
                         </div>
                     </div>
                 </div>
@@ -374,61 +532,67 @@
         <div class="applications">
             <div class="app-example">
                 <div class="app-icon">
-                    <div class="vapor-icon"></div>
+                    <div class="interlocked-fz">
+                        <div class="letter-f">F</div>
+                        <div class="letter-z">Z</div>
+                    </div>
                 </div>
             </div>
             
             <div class="app-example dark">
                 <div class="app-icon">
-                    <div class="vapor-icon"></div>
+                    <div class="interlocked-fz">
+                        <div class="letter-f">F</div>
+                        <div class="letter-z">Z</div>
+                    </div>
                 </div>
             </div>
             
-            <div class="app-example" style="background: #6CA0DC;">
+            <div class="app-example" style="background: #ff4b8b;">
                 <div class="app-icon">
                     <div style="width: 70px; height: 70px; background: white; border-radius: 50%;"></div>
                 </div>
             </div>
             
-            <div class="app-example" style="background: #2c3e50;">
+            <div class="app-example" style="background: #2d1a33;">
                 <div class="app-icon">
-                    <div style="width: 70px; height: 70px; background: #6CA0DC; border-radius: 50%;"></div>
+                    <div style="width: 70px; height: 70px; background: #ff80ab; border-radius: 50%;"></div>
                 </div>
             </div>
         </div>
         
-        <h2 class="section-title">Paleta de Cores</h2>
+        <h2 class="section-title">Paleta de Cores Rosa</h2>
         
         <div class="color-palette">
             <div class="color-item">
-                <div class="color-box" style="background-color: #6CA0DC;">#6CA0DC</div>
-                <div class="color-name">Azul Principal</div>
+                <div class="color-box" style="background-color: #ff4b8b;">#FF4B8B</div>
+                <div class="color-name">Rosa Vibrante</div>
             </div>
             <div class="color-item">
-                <div class="color-box" style="background-color: #4a7baf;">#4a7baf</div>
-                <div class="color-name">Azul Escuro</div>
+                <div class="color-box" style="background-color: #ff80ab;">#FF80AB</div>
+                <div class="color-name">Rosa Claro</div>
             </div>
             <div class="color-item">
-                <div class="color-box" style="background-color: #2c3e50; color: white;">#2c3e50</div>
-                <div class="color-name">Azul Negro</div>
+                <div class="color-box" style="background-color: #d32f70; color: white;">#D32F70</div>
+                <div class="color-name">Rosa Escuro</div>
             </div>
             <div class="color-item">
-                <div class="color-box" style="background-color: #8bb9fe;">#8bb9fe</div>
-                <div class="color-name">Azul Claro</div>
+                <div class="color-box" style="background-color: #2d1a33; color: white;">#2D1A33</div>
+                <div class="color-name">Roxo Escuro</div>
             </div>
             <div class="color-item">
-                <div class="color-box" style="background-color: #ffffff; color: #2c3e50;">#FFFFFF</div>
+                <div class="color-box" style="background-color: #ffffff; color: #2d1a33;">#FFFFFF</div>
                 <div class="color-name">Branco</div>
             </div>
         </div>
         
         <div class="instructions">
-            <h3>Como usar esta logo:</h3>
-            <p>1. Use a versão horizontal para assinaturas largas e cabeçalhos</p>
-            <p>2. Use a versão vertical para aplicações quadradas ou ícones</p>
-            <p>3. Mantenha sempre uma área de respiro ao redor da logo</p>
-            <p>4. Utilize sempre cores da paleta oficial para manter a identidade</p>
-            <p>5. A versão escura deve ser usada em fundos claros e vice-versa</p>
+            <h3>Características do Design:</h3>
+            <p>✓ Letras FZ interligadas com efeito de profundidade</p>
+            <p>✓ Pod estilizado com fumaça saindo (animação)</p>
+            <p>✓ Paleta de cores rosa moderna e vibrante</p>
+            <p>✓ Design minimalista mas impactante</p>
+            <p>✓ Versões para diferentes fundos e aplicações</p>
         </div>
     </div>
 
@@ -470,6 +634,30 @@
                 }
             `;
             document.head.appendChild(style);
+            
+            // Adicionar mais fumaça periodicamente
+            function addPodSmoke() {
+                const podContainers = document.querySelectorAll('.pod-container');
+                
+                podContainers.forEach(container => {
+                    const smoke = document.createElement('div');
+                    smoke.classList.add('pod-smoke');
+                    
+                    // Posição aleatória
+                    smoke.style.left = `${Math.random() * 20 + 5}px`;
+                    smoke.style.animationDelay = `${Math.random() * 2}s`;
+                    
+                    container.appendChild(smoke);
+                    
+                    // Remover após a animação terminar
+                    setTimeout(() => {
+                        smoke.remove();
+                    }, 4000);
+                });
+            }
+            
+            // Adicionar fumaça periodicamente
+            setInterval(addPodSmoke, 800);
         });
     </script>
 </body>
